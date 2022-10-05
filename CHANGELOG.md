@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.6](https://github.com/googleapis/java-gke-multi-cloud/compare/v0.2.5...v0.2.6) (2022-10-05)
+
+
+### Bug Fixes
+
+* update protobuf to v3.21.7 ([3540864](https://github.com/googleapis/java-gke-multi-cloud/commit/3540864a401335ea7d137fc63379c5032adeaef6))
+
 ## [0.2.5](https://github.com/googleapis/java-gke-multi-cloud/compare/v0.2.4...v0.2.5) (2022-10-03)
 
 
