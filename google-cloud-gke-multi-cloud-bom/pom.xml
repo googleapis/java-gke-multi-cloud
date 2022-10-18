@@ -75,7 +75,7 @@
       <dependency>
         <groupId>com.google.api.grpc</groupId>
         <artifactId>proto-google-cloud-gke-multi-cloud-v1</artifactId>
-        <version>0.3.0</version><!-- {x-version-update:proto-google-cloud-gke-multi-cloud-v1:current} -->
+        <version>0.2.7-SNAPSHOT</version><!-- {x-version-update:proto-google-cloud-gke-multi-cloud-v1:current} -->
       </dependency>
     </dependencies>
   </dependencyManagement>
