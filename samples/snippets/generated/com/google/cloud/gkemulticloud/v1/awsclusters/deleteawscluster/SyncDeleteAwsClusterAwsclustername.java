@@ -16,30 +16,27 @@
 
 package com.google.cloud.gkemulticloud.v1.samples;
 
-// [START gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
-import com.google.cloud.gkemulticloud.v1.AzureClustersSettings;
-import java.time.Duration;
+// [START gkemulticloud_v1_generated_AwsClusters_DeleteAwsCluster_Awsclustername_sync]
+import com.google.cloud.gkemulticloud.v1.AwsClusterName;
+import com.google.cloud.gkemulticloud.v1.AwsClustersClient;
+import com.google.protobuf.Empty;
 
-public class SyncGetAzureClient {
+public class SyncDeleteAwsClusterAwsclustername {
 
   public static void main(String[] args) throws Exception {
-    syncGetAzureClient();
+    syncDeleteAwsClusterAwsclustername();
   }
 
-  public static void syncGetAzureClient() throws Exception {
+  public static void syncDeleteAwsClusterAwsclustername() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    AzureClustersSettings.Builder azureClustersSettingsBuilder = AzureClustersSettings.newBuilder();
-    azureClustersSettingsBuilder
-        .getAzureClientSettings()
-        .setRetrySettings(
-            azureClustersSettingsBuilder.getAzureClientSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    AzureClustersSettings azureClustersSettings = azureClustersSettingsBuilder.build();
+    try (AwsClustersClient awsClustersClient = AwsClustersClient.create()) {
+      AwsClusterName name = AwsClusterName.of("[PROJECT]", "[LOCATION]", "[AWS_CLUSTER]");
+      awsClustersClient.deleteAwsClusterAsync(name).get();
+    }
   }
 }
-// [END gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
+// [END gkemulticloud_v1_generated_AwsClusters_DeleteAwsCluster_Awsclustername_sync]

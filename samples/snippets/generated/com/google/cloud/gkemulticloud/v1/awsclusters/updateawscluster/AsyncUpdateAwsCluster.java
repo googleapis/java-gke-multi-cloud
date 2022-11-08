@@ -16,30 +16,38 @@
 
 package com.google.cloud.gkemulticloud.v1.samples;
 
-// [START gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
-import com.google.cloud.gkemulticloud.v1.AzureClustersSettings;
-import java.time.Duration;
+// [START gkemulticloud_v1_generated_AwsClusters_UpdateAwsCluster_async]
+import com.google.api.core.ApiFuture;
+import com.google.cloud.gkemulticloud.v1.AwsCluster;
+import com.google.cloud.gkemulticloud.v1.AwsClustersClient;
+import com.google.cloud.gkemulticloud.v1.UpdateAwsClusterRequest;
+import com.google.longrunning.Operation;
+import com.google.protobuf.FieldMask;
 
-public class SyncGetAzureClient {
+public class AsyncUpdateAwsCluster {
 
   public static void main(String[] args) throws Exception {
-    syncGetAzureClient();
+    asyncUpdateAwsCluster();
   }
 
-  public static void syncGetAzureClient() throws Exception {
+  public static void asyncUpdateAwsCluster() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    AzureClustersSettings.Builder azureClustersSettingsBuilder = AzureClustersSettings.newBuilder();
-    azureClustersSettingsBuilder
-        .getAzureClientSettings()
-        .setRetrySettings(
-            azureClustersSettingsBuilder.getAzureClientSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    AzureClustersSettings azureClustersSettings = azureClustersSettingsBuilder.build();
+    try (AwsClustersClient awsClustersClient = AwsClustersClient.create()) {
+      UpdateAwsClusterRequest request =
+          UpdateAwsClusterRequest.newBuilder()
+              .setAwsCluster(AwsCluster.newBuilder().build())
+              .setValidateOnly(true)
+              .setUpdateMask(FieldMask.newBuilder().build())
+              .build();
+      ApiFuture<Operation> future =
+          awsClustersClient.updateAwsClusterCallable().futureCall(request);
+      // Do something.
+      Operation response = future.get();
+    }
   }
 }
-// [END gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
+// [END gkemulticloud_v1_generated_AwsClusters_UpdateAwsCluster_async]

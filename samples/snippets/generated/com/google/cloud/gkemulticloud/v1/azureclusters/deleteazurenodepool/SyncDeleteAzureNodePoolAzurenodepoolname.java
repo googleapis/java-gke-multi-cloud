@@ -16,30 +16,28 @@
 
 package com.google.cloud.gkemulticloud.v1.samples;
 
-// [START gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
-import com.google.cloud.gkemulticloud.v1.AzureClustersSettings;
-import java.time.Duration;
+// [START gkemulticloud_v1_generated_AzureClusters_DeleteAzureNodePool_Azurenodepoolname_sync]
+import com.google.cloud.gkemulticloud.v1.AzureClustersClient;
+import com.google.cloud.gkemulticloud.v1.AzureNodePoolName;
+import com.google.protobuf.Empty;
 
-public class SyncGetAzureClient {
+public class SyncDeleteAzureNodePoolAzurenodepoolname {
 
   public static void main(String[] args) throws Exception {
-    syncGetAzureClient();
+    syncDeleteAzureNodePoolAzurenodepoolname();
   }
 
-  public static void syncGetAzureClient() throws Exception {
+  public static void syncDeleteAzureNodePoolAzurenodepoolname() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    AzureClustersSettings.Builder azureClustersSettingsBuilder = AzureClustersSettings.newBuilder();
-    azureClustersSettingsBuilder
-        .getAzureClientSettings()
-        .setRetrySettings(
-            azureClustersSettingsBuilder.getAzureClientSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    AzureClustersSettings azureClustersSettings = azureClustersSettingsBuilder.build();
+    try (AzureClustersClient azureClustersClient = AzureClustersClient.create()) {
+      AzureNodePoolName name =
+          AzureNodePoolName.of("[PROJECT]", "[LOCATION]", "[AZURE_CLUSTER]", "[AZURE_NODE_POOL]");
+      azureClustersClient.deleteAzureNodePoolAsync(name).get();
+    }
   }
 }
-// [END gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
+// [END gkemulticloud_v1_generated_AzureClusters_DeleteAzureNodePool_Azurenodepoolname_sync]

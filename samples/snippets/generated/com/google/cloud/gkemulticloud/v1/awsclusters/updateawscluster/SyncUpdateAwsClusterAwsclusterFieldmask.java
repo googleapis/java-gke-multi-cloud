@@ -16,30 +16,28 @@
 
 package com.google.cloud.gkemulticloud.v1.samples;
 
-// [START gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
-import com.google.cloud.gkemulticloud.v1.AzureClustersSettings;
-import java.time.Duration;
+// [START gkemulticloud_v1_generated_AwsClusters_UpdateAwsCluster_AwsclusterFieldmask_sync]
+import com.google.cloud.gkemulticloud.v1.AwsCluster;
+import com.google.cloud.gkemulticloud.v1.AwsClustersClient;
+import com.google.protobuf.FieldMask;
 
-public class SyncGetAzureClient {
+public class SyncUpdateAwsClusterAwsclusterFieldmask {
 
   public static void main(String[] args) throws Exception {
-    syncGetAzureClient();
+    syncUpdateAwsClusterAwsclusterFieldmask();
   }
 
-  public static void syncGetAzureClient() throws Exception {
+  public static void syncUpdateAwsClusterAwsclusterFieldmask() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    AzureClustersSettings.Builder azureClustersSettingsBuilder = AzureClustersSettings.newBuilder();
-    azureClustersSettingsBuilder
-        .getAzureClientSettings()
-        .setRetrySettings(
-            azureClustersSettingsBuilder.getAzureClientSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    AzureClustersSettings azureClustersSettings = azureClustersSettingsBuilder.build();
+    try (AwsClustersClient awsClustersClient = AwsClustersClient.create()) {
+      AwsCluster awsCluster = AwsCluster.newBuilder().build();
+      FieldMask updateMask = FieldMask.newBuilder().build();
+      AwsCluster response = awsClustersClient.updateAwsClusterAsync(awsCluster, updateMask).get();
+    }
   }
 }
-// [END gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
+// [END gkemulticloud_v1_generated_AwsClusters_UpdateAwsCluster_AwsclusterFieldmask_sync]

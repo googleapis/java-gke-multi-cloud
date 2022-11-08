@@ -16,9 +16,11 @@
 
 package com.google.cloud.gkemulticloud.v1.samples;
 
-// [START gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
-import com.google.cloud.gkemulticloud.v1.AzureClustersSettings;
-import java.time.Duration;
+// [START gkemulticloud_v1_generated_AzureClusters_GetAzureClient_sync]
+import com.google.cloud.gkemulticloud.v1.AzureClient;
+import com.google.cloud.gkemulticloud.v1.AzureClientName;
+import com.google.cloud.gkemulticloud.v1.AzureClustersClient;
+import com.google.cloud.gkemulticloud.v1.GetAzureClientRequest;
 
 public class SyncGetAzureClient {
 
@@ -32,14 +34,13 @@ public class SyncGetAzureClient {
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    AzureClustersSettings.Builder azureClustersSettingsBuilder = AzureClustersSettings.newBuilder();
-    azureClustersSettingsBuilder
-        .getAzureClientSettings()
-        .setRetrySettings(
-            azureClustersSettingsBuilder.getAzureClientSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    AzureClustersSettings azureClustersSettings = azureClustersSettingsBuilder.build();
+    try (AzureClustersClient azureClustersClient = AzureClustersClient.create()) {
+      GetAzureClientRequest request =
+          GetAzureClientRequest.newBuilder()
+              .setName(AzureClientName.of("[PROJECT]", "[LOCATION]", "[AZURE_CLIENT]").toString())
+              .build();
+      AzureClient response = azureClustersClient.getAzureClient(request);
+    }
   }
 }
-// [END gkemulticloud_v1_generated_AzureClustersSettings_GetAzureClient_sync]
+// [END gkemulticloud_v1_generated_AzureClusters_GetAzureClient_sync]
